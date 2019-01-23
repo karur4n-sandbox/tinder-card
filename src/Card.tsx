@@ -78,10 +78,10 @@ export class CardComponent extends React.PureComponent<Props, {}> {
       y: ev.deltaY
     };
 
-    this.transform.angle = (ev.deltaX / 400) * 60;
-    this.opacity = (400 - Math.abs(ev.deltaX)) / 400;
-
-    // -90 : 0 : -90
+    this.transform.angle = (ev.deltaX / this.props.containerWidth) * 60;
+    this.opacity =
+      (this.props.containerWidth - Math.abs(ev.deltaX)) /
+      this.props.containerWidth;
 
     window.requestAnimationFrame(this.updateElementTransform);
   };
